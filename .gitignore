@@ -18,5 +18,4 @@ yarn.lock
 
 .devcontainer
 .vscode
-go.mod
 /tailwind-plugin
