@@ -1,0 +1,14 @@
+{
+  "main": [
+    {
+      "name": "twitter",
+      "icon": "fab fa-twitter",
+      "link": "https://twitter.com/write_quick"
+    },
+    {
+      "name": "github",
+      "icon": "fab fa-github",
+      "link": "https://www.github.com/quickwrite/"
+    }
+  ]
+}

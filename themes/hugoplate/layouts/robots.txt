@@ -1,0 +1,12 @@
+# Advertising-related bots:
+User-agent: Mediapartners-Google*
+Disallow: /
+
+# A capture bot, downloads gazillions of pages with no public benefit
+# http://www.webreaper.net/
+User-agent: WebReaper
+Disallow: /
+
+# Any other user agent
+User-Agent: *
+Disallow: /categories/
