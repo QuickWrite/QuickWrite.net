@@ -1,1 +1,46 @@
 /* Add your own custom styles here */
+blockquote p {
+  display: inline;
+}
+blockquote p:first-of-type {
+  quotes: '\201C' '\201D' '\2018' '\2019';
+}
+blockquote p:first-of-type::before {
+  content: open-quote;
+  margin-right: 0.1rem;
+}
+blockquote p:last-of-type {
+  quotes: '\201C' '\201D' '\2018' '\2019';
+  font-style: italic;
+}
+blockquote p:last-of-type::before {
+  content: close-quote "\000A" "\2014" " ";
+  white-space: pre;
+  margin-left: 0.1rem;
+  font-style: normal;
+}
+blockquote p:only-of-type {
+  font-style: normal;
+  quotes: '\201C' '\201D' '\2018' '\2019';
+}
+blockquote p:only-of-type::before {
+  content: open-quote;
+  margin-right: 0.1rem;
+}
+blockquote p:only-of-type::after {
+  content: close-quote;
+  margin-left: 0.1rem;
+}
+
+code {
+  padding: 0;
+}
+
+.highlight code {
+  color: inherit;
+}
+
+pre {
+  margin-top: .2em;
+  margin-bottom: 0.1em;
+}
