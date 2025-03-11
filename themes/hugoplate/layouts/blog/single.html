@@ -44,29 +44,27 @@
             {{ partial "toc.html" (dict "Class" "blog" "Collapsed" false "TableOfContents" .TableOfContents ) }}
             {{ .Content }}
           </div>
-          <div class="row items-start justify-between">
-            {{ $tags:= .Params.tags }}
-            {{ if $tags }}
-              <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
-                <h5 class="mr-3 whitespace-nowrap">{{ T "tags" }} :</h5>
-                <ul>
-                  {{ range $i,$p:= $tags }}
-                    <li class="inline-block">
-                      <a
-                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="{{ `tags/` | relLangURL }}{{ . | urlize | lower }}/">
-                        {{ . | humanize }}
-                      </a>
-                    </li>
-                  {{ end }}
-                </ul>
-              </div>
-            {{ end }}
-            <div class="lg:col-6 flex items-center m-auto">
-              {{ partial "social-share" (dict "Context" . "Class" "share-icons lg:ml-auto" "Title" (T "share") "Whatsapp" false "Telegram" false "Linkedin" false "Pinterest" false "Tumblr" false "Vk" false) }}
-            </div>
+
+          <hr class="mb-8">
+
+          {{ $tags := .Params.tags }}
+          {{ if $tags }}
+          <div class="flex items-center">
+            <span class="mr-3 font-bold">{{ T "tags" }}:</span>
+            <ul>
+              {{ range $i,$p:= $tags }}
+                <li class="inline-block">
+                  <a
+                    class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
+                    href="{{ `tags/` | relLangURL }}{{ . | urlize | lower }}/">
+                    {{ . | humanize }}
+                  </a>
+                </li>
+              {{ end }}
+            </ul>
           </div>
-          <!-- comments -->
+        {{ end }}
+      <!-- comments -->
           {{ if site.Config.Services.Disqus.Shortname }}
             <div class="mt-20">
               {{ template "_internal/disqus.html" . }}
