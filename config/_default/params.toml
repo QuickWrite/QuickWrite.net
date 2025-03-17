@@ -27,7 +27,8 @@ mainSections = ["blog"]
 # custom script on header, example: custom_script= "<script>console.log(\"Hello World\")</script>"
 custom_script = ""
 # copyright
-copyright = "QuickWrite | Modified version of [Hugoplate](https://github.com/zeon-studio/hugoplate/tree/main) by [Zeon Studio](https://zeon.studio)"
+copyright = "Content licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) by QuickWrite"
+theme_attribution = "Modified version of [Hugoplate](https://github.com/zeon-studio/hugoplate/tree/main) by [Zeon Studio](https://zeon.studio)"
 
 # Preloader
 # preloader module: https://github.com/gethugothemes/hugo-modules/tree/master/components/preloader

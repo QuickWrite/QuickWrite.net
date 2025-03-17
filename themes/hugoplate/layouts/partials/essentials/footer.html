@@ -51,7 +51,8 @@
     <div
       class="text-text-light dark:text-darkmode-text-light container text-center">
       <p>
-        {{ site.Params.copyright | markdownify }}
+        {{ site.Params.copyright | markdownify }} <br>
+        <span class="font-semibold">Theme:</span> {{ site.Params.theme_attribution | markdownify }}
       </p>
     </div>
   </div>
