@@ -1,0 +1,17 @@
+name = "Monospace Web"
+license = "MIT"
+licenselink = "Link to theme's license"
+description = "A port of Monospace Web from https://owickstrom.github.io/the-monospace-web/."
+
+tags = ["monospace", "web"]
+features = []
+
+[author]
+    name = "QuickWrite"
+    homepage = "https://quickwrite.net"
+
+# Porting an existing website
+[original]
+    author = "Oskar Wickström"
+    homepage = "https://owickstrom.github.io/the-monospace-web/"
+    repo = "https://github.com/owickstrom/the-monospace-web"
