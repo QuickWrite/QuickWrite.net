@@ -8,3 +8,18 @@ theme = "monospace-web"
     [params.license]
         name = "CC BY-SA 4.0"
         url = "https://creativecommons.org/licenses/by-sa/4.0/"
+
+[menus]
+    [[menus.left]]
+        name = 'Home'
+        pageRef = '/'
+        weight = 10
+    [[menus.left]]
+        name = 'About'
+        pageRef = '/about'
+        weight = 20
+    
+    [[menus.right]]
+        name = 'Blog'
+        pageRef = '/blog'
+        weight = 10

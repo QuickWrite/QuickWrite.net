@@ -1,0 +1,18 @@
+.header-navigation {
+    width: calc(round(up, 100%, 1ch) - 2ch);
+    margin-left: 1ch;
+
+    nav {
+        margin-top: 1em; 
+        display: flex; 
+        justify-content: space-between;
+    }
+
+    ul {
+        display: flex; 
+        flex-direction: row; 
+        padding-left: 0; 
+        list-style: none;
+        gap: 2ch;
+    }
+}
