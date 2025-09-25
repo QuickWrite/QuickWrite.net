@@ -2,6 +2,7 @@ baseURL = 'https://quickwrite.net/'
 languageCode = 'en-us'
 title = 'QuickWrite'
 
+enableRobotsTXT = true
 theme = "monospace-web"
 
 [params]

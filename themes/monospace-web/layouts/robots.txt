@@ -1,0 +1,21 @@
+# robots.txt for {{ .Site.BaseURL }}
+Sitemap: {{ .Site.BaseURL }}sitemap.xml
+
+# Hello and welcome robots. Let's be friends! :-)
+
+# friendly-crawler-mode ON  <(^_^)>
+# Hello good robots, enjoy exploring the site!
+User-agent: *
+Disallow:
+
+# ============================================== #
+# This site generally assumes all bots are good. #
+#  But unfortunately there are some bad apples.  #
+# ============================================== #
+
+# unfriendly-crawler-mode ON   (╯°□°)╯ ┻━┻
+# Below are bots we *don’t* want snooping.
+
+{{ partial "data/bad-robots.html" . }}
+
+# Bye for now — go index something lovely! /o/  (✿◠‿◠)
