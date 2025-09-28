@@ -1,3 +1,12 @@
+{{- $params := "" -}}
+{{- if eq .Kind "404" -}} {{/* Hugo treats 404 pages differently. So there has to be this hack. */}}
+  {{- $page := .Site.GetPage "/_404" -}}
+
+  {{- $params = $page.Params -}}
+{{ else }}
+  {{- $params = .Params -}}
+{{ end }}
+
 <div class="header-navigation">
   <nav>
       <ul>
@@ -16,8 +25,8 @@
 <table class="header">
   <tr>
     <td colspan="2" rowspan="2" class="width-auto">
-      <h1 class="title">QuickWrite</h1>
-      <span class="subtitle">My personal website</span>
+      <h1 class="title">{{ .Title }}</h1>
+      <span class="subtitle">{{ $params.subtitle }}</span>
     </td>
     <th>Message</th>
     <td class="width-min">Something</td>
