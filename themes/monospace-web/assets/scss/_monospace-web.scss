@@ -12,7 +12,7 @@
   --line-height: 1.20rem;
   --border-thickness: 2px;
   --text-color: #0e0e0e;
-  --text-color-alt: #666;
+  --text-color-alt: #555050;
   --background-color: #fffdf8;
   --background-color-alt: #fffffd;
 
@@ -31,7 +31,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --text-color: #E4E4E4;
-    --text-color-alt: #d4d3d3;
+    --text-color-alt: #b7adad;
     --background-color: #242424;
     --background-color-alt: #3d3d3d;
   }

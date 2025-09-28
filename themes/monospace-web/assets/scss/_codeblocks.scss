@@ -1,0 +1,55 @@
+/* Code Blocks */
+
+/* Generated using: hugo gen chromastyles --style=algol_nu */
+/* Modified to fit the project */
+
+.chroma {
+    .line {
+        margin-top: 0;
+    }
+
+    .lnlinks {
+        outline: none;
+        text-decoration: none;
+        color: inherit
+    }
+
+    .lnt, .ln {
+        white-space: pre;
+        user-select: none;
+        padding: 0 1ch 0 1ch;
+        color: var(--text-color-alt);
+    }
+
+    .k, .kc, .kn, .kp, .kr, .kt, .kd, .nb, .bp {
+        font-weight: bold;
+        font-style: italic;
+        text-decoration: underline;
+    }
+
+    .nc, .no, .nn, .nv, .vc, .vg, .vi, .vm, .nf, .fm {
+        color: var(--text-color-alt);
+        font-weight: bold;
+        font-style: italic
+    }
+
+    .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss  {
+        color: var(--text-color-alt);
+        font-style: italic;
+        text-decoration: underline;
+    }
+
+    .ow {
+        font-weight: bold
+    }
+
+    .c, .ch, .cm, .c1 {
+        color: var(--text-color-alt);
+        font-style: italic
+    }
+
+    .cs, .cp, .cpf {
+        color: var(--text-color-alt);
+        font-weight: bold
+    }
+}

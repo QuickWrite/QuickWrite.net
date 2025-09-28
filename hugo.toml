@@ -24,3 +24,18 @@ theme = "monospace-web"
         name = 'Blog'
         pageRef = '/blog'
         weight = 10
+
+[markup]
+    [markup.highlight]
+        anchorLineNos = false
+        codeFences = true
+        guessSyntax = false
+        hl_inline = false
+        lineAnchors = ''
+        lineNoStart = 1
+        lineNos = true
+        lineNumbersInTable = false
+        noClasses = false
+        style = 'algol_nu'
+        tabWidth = 4
+        wrapperClass = 'highlight'
