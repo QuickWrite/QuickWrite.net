@@ -5,7 +5,7 @@
   {{- $params = $page.Params -}}
 {{ else }}
   {{- $params = .Params -}}
-{{ end}}
+{{ end }}
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,8 +13,8 @@
 <title>{{ .Title }} | {{ .Site.Title }}</title>
 
 <meta name="generator" content="Hugo with Monospace Web Theme" />
-{{ if $params.Author }}<meta name="author" content="{{ .Params.Author }}" />{{ end }}
-{{ if $params.Description }}<meta name="description" content="{{ .Params.Description }}">{{ end }}
+{{ if $params.Author }}<meta name="author" content="{{ $params.Author }}" />{{ end }}
+{{ if $params.Description }}<meta name="description" content="{{ $params.Description }}">{{ end }}
 {{ if $params.excluderobots }}<meta name="robots" content="noindex">{{ end }}
 <link rel="canonical"  href="{{ .Permalink }}">
 
