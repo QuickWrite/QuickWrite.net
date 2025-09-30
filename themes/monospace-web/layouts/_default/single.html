@@ -1,8 +1,15 @@
 {{ define "main" }}
-    <nav id="TOC" role="doc-toc">
-        <h2>{{ i18n "TableOfContents" }}:</h2>
-        {{ .Page.TableOfContents }}
-    </nav>
+    <header>
+        {{- partial "header.html" (dict "context" .) -}}
+    </header>
 
-    {{ .Content }}
+    <main>
+        {{ partial "toc" . }}
+
+        {{ .Content }}
+    </main>
+
+    <footer>
+        {{- partial "footer.html" . -}}
+    </footer>
 {{ end }}

@@ -1,21 +1,21 @@
 {{- $params := "" -}}
 {{- if eq .Kind "404" -}} {{/* Hugo treats 404 pages differently. So there has to be this hack. */}}
-  {{- $page := .Site.GetPage "/_404" -}}
+  {{- $page := .context.Site.GetPage "/_404" -}}
 
   {{- $params = $page.Params -}}
 {{ else }}
-  {{- $params = .Params -}}
+  {{- $params = .context.Params -}}
 {{ end }}
 
 <div class="header-navigation">
   <nav>
       <ul>
-        {{ range .Site.Menus.left }}
+        {{ range .context.Site.Menus.left }}
           <li><a href="{{ .URL }}">{{ .Name }}</a></li>
         {{ end }}
       </ul>
       <ul>
-        {{ range .Site.Menus.right }}
+        {{ range .context.Site.Menus.right }}
           <li><a href="{{ .URL }}">{{ .Name }}</a></li>
         {{ end }}
       </ul>
@@ -25,20 +25,27 @@
 <table class="header">
   <tr>
     <td colspan="2" rowspan="2" class="width-auto">
-      <h1 class="title">{{ .Title }}</h1>
+      <h1 class="title">{{ .context.Title }}</h1>
       <span class="subtitle">{{ $params.subtitle }}</span>
     </td>
-    <th>Message</th>
-    <td class="width-min">Something</td>
+    {{ if .table.right.top }}
+      <th>{{ .table.right.top.name }}</th>
+      <td class="width-min">{{ .table.right.top.content }}</td>
+    {{ end }}
+  </tr>
+  
+  <tr>
+    {{ if .table.right.center }} 
+    <th>{{ .table.right.center.name }}</th>
+    <td class="width-min">{{ .table.right.center.content }}</td>
+    {{ end }}
   </tr>
   <tr>
-    <th>Updated</th>
-    <td class="width-min"><time style="white-space: pre;">2025-08-20</time></td>
-  </tr>
-  <tr>
-    <th class="width-min">Text</th>
-    <td class="width-auto">Way more text</td>
-    <th class="width-min">License</th>
-    <td>MIT</td>
+    <th class="width-min">{{ .table.left.bottom.name }}</th>
+    <td class="width-auto">{{ .table.left.bottom.content }} </td>
+    {{ if .table.right.bottom }}
+      <th class="width-min">{{ .table.right.bottom.name }}</th>
+      <td>{{ .table.right.bottom.content }}</td>
+    {{ end }}
   </tr>
 </table>
