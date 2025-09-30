@@ -46,6 +46,10 @@
   margin-top: var(--line-height);
 }
 
+br {
+  margin-top: 0;
+}
+
 html {
   display: flex;
   width: 100%;
@@ -87,6 +91,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-size: 1rem;
   font-weight: var(--font-weight-bold);
   margin: calc(var(--line-height) * 2) 0 var(--line-height);
   line-height: var(--line-height);
@@ -100,7 +105,6 @@ h1 {
 }
 
 h2 {
-  font-size: 1rem;
   text-transform: uppercase;
 }
 
@@ -291,9 +295,10 @@ ul {
 }
 
 ol {
-  list-style-type: none;
+  //list-style-type: none;
   counter-reset: item;
   padding: 0;
+  margin-left: 3ch;
 }
 
 ol ul,
@@ -304,11 +309,11 @@ ul ul {
   margin: 0;
 }
 
-ol li:before {
-  content: counters(item, ".") ". ";
-  counter-increment: item;
-  font-weight: var(--font-weight-medium);
-}
+// ol li:before {
+//   content: counters(item, ".") ". ";
+//   counter-increment: item;
+//   font-weight: var(--font-weight-medium);
+// }
 
 li {
   margin: 0;
