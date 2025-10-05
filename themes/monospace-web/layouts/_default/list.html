@@ -1,0 +1,25 @@
+{{ define "main" }}
+    <header>
+        {{- partial "header.html" (dict "context" .) -}}
+    </header>
+
+    <main>
+        {{ .Content }}
+
+        <ul>
+            {{ range .Pages }}
+                <li>
+                    <strong><a href="{{ .RelPermalink }}">{{ .LinkTitle }} - {{ .Params.subtitle }}</a></strong>
+
+                    <p>
+                        {{ .Summary }}
+                    </p>
+                </li>
+            {{ end }}
+        </ul>
+    </main>
+
+    <footer>
+        {{- partial "footer.html" . -}}
+    </footer>
+{{ end }}
