@@ -1,0 +1,16 @@
+{{- $node := . -}}
+
+{{- if $node.Headings -}}
+<ol class="toc-list" role="list">
+  {{- range $node.Headings }}
+    <li class="toc-level-{{ .Level }}">
+      <a href="#{{ .ID }}">
+        <span class="title">{{ .Title | safeHTML }}<span class="leaders" aria-hidden="true"><!-- dots --></span></span>
+        
+        <span data-href="#{{ .ID }}" class="counter"></span>
+      </a>
+      {{ partial "toc-recursive.html" . }}
+    </li>
+  {{- end }}
+</ol>
+{{- end }}
