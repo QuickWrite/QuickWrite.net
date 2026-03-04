@@ -41,6 +41,7 @@
 }
 
 .toc-list li > a .leaders::after {
+    margin-left: 1ch;
     position: absolute;
     padding-inline-start: .25ch;
     counter-reset: dots 120;
