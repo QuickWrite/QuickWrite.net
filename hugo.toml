@@ -1,11 +1,19 @@
 baseURL = 'https://quickwrite.net/'
-languageCode = 'en-us'
 title = 'QuickWrite'
 
+defaultContentLanguage = 'en'
+languageCode = "en-GB"
+
 enableRobotsTXT = true
+
 theme = "monospace-web"
 
+[security]
+  enableInlineShortcodes = true
+
 [params]
+    author = "QuickWrite"
+    toc = true
     [params.license]
         name = "CC BY-SA 4.0"
         url = "https://creativecommons.org/licenses/by-sa/4.0/"
@@ -39,3 +47,10 @@ theme = "monospace-web"
         style = 'algol_nu'
         tabWidth = 4
         wrapperClass = 'highlight'
+    [markup.goldmark]
+        renderer.unsafe = true
+        [markup.goldmark.renderHooks]
+        [markup.goldmark.renderHooks.link]
+            useEmbedded = 'auto'
+
+
