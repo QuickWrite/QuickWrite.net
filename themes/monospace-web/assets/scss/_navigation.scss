@@ -15,3 +15,12 @@
         gap: 2ch;
     }
 }
+
+.pagination {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    gap: 2ch;
+    justify-content: center;
+    margin-top: calc(var(--line-height) * 2);
+}

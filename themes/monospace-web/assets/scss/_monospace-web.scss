@@ -418,3 +418,19 @@ li::marker {
   height: calc(var(--line-height) / 2);
   border-left: var(--border-thickness) solid var(--text-color);
 }
+
+.box {
+  border: var(--border-thickness) solid var(--text-color);
+
+  .boxtitle {
+    padding: 1ch;
+    border-bottom: var(--border-thickness) solid var(--text-color);
+
+    font-weight: bold;
+  }
+
+  .boxcontent {
+    padding: 1ch;
+    margin: 0;
+  }
+}
