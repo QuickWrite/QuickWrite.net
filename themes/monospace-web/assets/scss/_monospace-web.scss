@@ -9,14 +9,16 @@
 
 :root {
   --font-family: "JetBrains Mono", monospace;
-  --line-height: 1.20rem;
+  --line-height: 24px;
   --border-thickness: 2px;
   --text-color: #0e0e0e;
   --text-color-alt: #555050;
   --background-color: #fffdf8;
   --background-color-alt: #fffffd;
 
-  --font-weight-normal: 500;
+  --selection-color: rgba(122, 59, 47, 0.20);
+
+  --font-weight-normal: 450;
   --font-weight-medium: 600;
   --font-weight-bold: 800;
 
@@ -30,10 +32,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text-color: #E4E4E4;
-    --text-color-alt: #b7adad;
-    --background-color: #242424;
-    --background-color-alt: #3d3d3d;
+    --text-color: #F2E7D5;
+    --text-color-alt: #F3DFC1;
+    --background-color: #272324;
+    --background-color-alt: #1A1C1A;
+
+    --selection-color: #5C3A21;
   }
 }
 
@@ -44,6 +48,10 @@
 
 *+* {
   margin-top: var(--line-height);
+}
+
+*::selection { 
+  background: var(--selection-color);
 }
 
 br {
@@ -197,6 +205,10 @@ th {
 
 .header tr td:last-child {
   text-align: right;
+}
+
+.header tr td:first-child {
+  text-align: left;
 }
 
 p {
