@@ -10,7 +10,7 @@ description = "Information about the licenses used on this website."
 I am mainly writing this page as a consolidated place for information about the different things that you can do with the content on this website.
 I mainly believe that the current copyright system does not work with the modern web. But as we still live in a world with this legislation, I am still writing this.
 
-This is why this site is mainly licensed under the CC BY-SA 4.0 license. With that you can do whatever you want with the contents on this site as long as you
+This is why this site is mainly licensed under the [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license. With that you can do whatever you want with the contents on this site as long as you
 1. credit me and/or the person that created the content.
 2. use the same (or compatible) license for your usecase.
 
@@ -18,11 +18,11 @@ I am mainly licensing this content under this license as it allows for a lot of 
 
 *This page is informational only and does not constitute legal advice.*
 
-## Diffent parts
+## Different parts
 Sadly, this website consists of not just the content, but also various other components. Each of these parts comes with its own unique license.
 
 ### Content
-Like stated above, the content is licensed under the CC BY-SA 4.0 license.
+Like stated above, the content is licensed under the [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
 
 ### Source Code
 All of the source code for this website is openly accessible for everyone in a [GitHub repository](https://github.com/QuickWrite/QuickWrite.net "The GitHub repository for this site") under the MIT License.
