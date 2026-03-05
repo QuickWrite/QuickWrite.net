@@ -25,6 +25,7 @@
 <meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}" />
 <link rel="manifest" href="/img/favicon/site.webmanifest" />
 
+<meta rel="preload" href="/fonts/JetBrainsMono/JetBrainsMono-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 {{ with resources.Get "scss/style.scss" }}
   {{ $opts := dict
     "enableSourceMap" hugo.IsDevelopment
@@ -38,6 +39,23 @@
     {{ else }}
       {{ with . | fingerprint }}
         <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ with resources.Get "scss/print.scss" }}
+  {{ $opts := dict
+    "enableSourceMap" hugo.IsDevelopment
+    "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
+    "targetPath" "css/print.css"
+    "vars" site.Params.styles
+  }}
+  {{ with . | toCSS $opts }}
+    {{ if hugo.IsDevelopment }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" media="print">
+    {{ else }}
+      {{ with . | fingerprint }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}" media="print" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
       {{ end }}
     {{ end }}
   {{ end }}
