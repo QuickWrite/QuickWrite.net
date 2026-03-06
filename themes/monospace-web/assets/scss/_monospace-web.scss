@@ -16,6 +16,8 @@
   --background-color: #fffdf8;
   --background-color-alt: #fffffd;
 
+  --link-color: #7c5141;
+
   --selection-color: rgba(122, 59, 47, 0.20);
 
   --font-weight-normal: 450;
@@ -36,6 +38,8 @@
     --text-color-alt: #F3DFC1;
     --background-color: #272324;
     --background-color-alt: #1A1C1A;
+
+    --link-color: #d1663f;
 
     --selection-color: #5C3A21;
   }
@@ -183,7 +187,7 @@ a {
 
 a:link,
 a:visited {
-  color: var(--text-color);
+  color: var(--link-color);
 }
 
 p {
