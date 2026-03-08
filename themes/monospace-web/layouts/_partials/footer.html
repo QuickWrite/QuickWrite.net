@@ -29,7 +29,11 @@
             unless otherwise indicated.
         </li>
         <li>
-            Font: JetBrains Mono. Licensed under 
+            {{- if .Page.Store.Get "hasMath" -}}
+            Fonts: JetBrains Mono and STIXTwo Math. 
+            {{- else -}}
+            Font: JetBrains Mono. 
+            {{- end }} Licensed under
             <a href="https://opensource.org/licenses/OFL-1.1" target="_blank" rel="noopener noreferrer">SIL Open Font License (OFL)</a>.
          </li>
     </ul>
