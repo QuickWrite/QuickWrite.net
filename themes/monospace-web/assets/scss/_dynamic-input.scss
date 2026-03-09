@@ -1,0 +1,94 @@
+
+input,
+button,
+textarea {
+  border: var(--border-thickness) solid var(--text-color);
+  padding:
+    calc(var(--line-height) / 2 - var(--border-thickness)) calc(1ch - var(--border-thickness));
+  margin: 0;
+  font: inherit;
+  font-weight: inherit;
+  height: calc(var(--line-height) * 2);
+  width: auto;
+  overflow: visible;
+  background: var(--background-color);
+  color: var(--text-color);
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  appearance: none;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  display: inline-grid;
+  place-content: center;
+  vertical-align: top;
+  width: 2ch;
+  height: var(--line-height);
+  cursor: pointer;
+}
+
+input[type=checkbox]:checked:before,
+input[type=radio]:checked:before {
+  content: "";
+  width: 1ch;
+  height: calc(var(--line-height) / 2);
+  background: var(--text-color);
+}
+
+input[type=radio],
+input[type=radio]:before {
+  border-radius: 100%;
+}
+
+button:focus,
+input:focus {
+  --border-thickness: 3px;
+  outline: none;
+}
+
+input {
+  width: calc(round(up, 100%, 1ch));
+}
+
+::placeholder {
+  color: var(--text-color-alt);
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: var(--text-color-alt);
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0
+}
+
+button {
+  text-transform: uppercase;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--background-color-alt);
+}
+
+button:active {
+  transform: translate(2px, 2px);
+}
+
+label {
+  display: block;
+  width: calc(round(up, 100%, 1ch));
+  height: auto;
+  line-height: var(--line-height);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
+}
+
+label input {
+  width: 100%;
+}

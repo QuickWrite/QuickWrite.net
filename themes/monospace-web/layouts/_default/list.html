@@ -1,0 +1,34 @@
+{{ define "main" }}
+<header>
+    {{- partial "header.html" (dict "context" .) -}}
+</header>
+
+<main>
+    {{ $paginator := .Paginate .Pages.ByTitle }}
+
+    {{ .Content }}
+    {{ range $paginator.Pages }}
+    <div>
+        <div class="box">
+            <div class="boxtitle">
+                <a href="{{ .RelPermalink }}" style="text-decoration: none">
+                    <div>{{ .LinkTitle }}</div>
+                    <span style="font-weight: initial">{{ .Params.subtitle }}</span>
+                </a>
+            </div>
+            <div class="boxcontent">
+                {{ .Summary }}
+
+                {{ if .Truncated }}
+                <a href="{{ .RelPermalink }}">{{ i18n "ReadMore" }}</a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+    {{ end }}
+
+    {{ partial "pagination.html" . }}
+</main>
+
+<footer>{{- partial "footer.html" . -}}</footer>
+{{ end }}

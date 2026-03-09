@@ -1,0 +1,42 @@
+{{ define "main" }}
+    {{ $tagString := "" -}}
+    {{ range .GetTerms "tags" -}}
+        {{ if eq $tagString "" -}}
+            {{ $tagString = (printf "<a href='%s'>%s</a>" .RelPermalink .LinkTitle) -}}
+        {{ else -}}
+            {{ $tagString = (printf "%s, <a href='%s'>%s</a>" $tagString .RelPermalink .LinkTitle) -}}
+        {{ end -}}
+    {{ end -}}
+
+    <header>
+        {{- partial "header.html" 
+                    (dict 
+                        "context" . 
+                        "table" (dict 
+                                "left" (dict 
+                                    "bottom" (dict "name" "Tags" "content" ($tagString | safeHTML))
+                                )
+
+                                "right" (dict
+                                    "top" (dict "name" "Version" "content" .Params.version)
+                                    "center" (dict "name" "Updated" "content" (.Date | time.Format "02.01.2006") )
+                                    "bottom" (dict "name" "License" "content" .Params.license)
+                                )
+                            )
+                    ) 
+        -}}
+    </header>
+
+    <main>
+        {{ partial "toc" .}}
+
+        {{ .Content }}
+    </main>
+
+    <footer>
+        <div style="padding-top: 2ch;" class="screen-only">
+            <a href="/projects/"><- Back to Projects</a>
+        </div>
+        {{- partial "footer.html" . -}}
+    </footer>
+{{ end }}

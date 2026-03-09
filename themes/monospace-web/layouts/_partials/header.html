@@ -1,0 +1,54 @@
+{{- $params := "" -}}
+{{- if eq .Kind "404" -}} {{/* Hugo treats 404 pages differently. So there has to be this hack. */}}
+  {{- $page := .context.Site.GetPage "/_404" -}}
+
+  {{- $params = $page.Params -}}
+{{ else }}
+  {{- $params = .context.Params -}}
+{{ end }}
+
+<div class="header-navigation">
+  <nav>
+      <ul>
+        {{ range .context.Site.Menus.left }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+      <ul>
+        {{ range .context.Site.Menus.right }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+  </nav>
+</div>
+
+<table class="header width-auto">
+  <tr>
+    <td colspan="2" rowspan="2" class="width-auto">
+      <h1 class="title">{{ .context.Title }}</h1>
+      <span class="subtitle">{{ $params.subtitle }}</span>
+    </td>
+    {{ if .table.right.top }}
+      <th>{{ .table.right.top.name }}</th>
+      <td class="width-min">{{ .table.right.top.content }}</td>
+    {{ end }}
+  </tr>
+  
+  <tr>
+    {{ if .table.right.center }} 
+    <th>{{ .table.right.center.name }}</th>
+    <td class="width-min">{{ .table.right.center.content }}</td>
+    {{ end }}
+  </tr>
+
+  {{ if .table.left.bottom.name }}
+  <tr>
+    <th class="width-min">{{ .table.left.bottom.name }}</th>
+    <td class="width-auto">{{ .table.left.bottom.content }} </td>
+    {{ if .table.right.bottom }}
+      <th class="width-min">{{ .table.right.bottom.name }}</th>
+      <td>{{ .table.right.bottom.content }}</td>
+    {{ end }}
+  </tr>
+  {{ end }}
+</table>

@@ -1,0 +1,13 @@
+// Congregate all the styles
+@import 'fonts';
+
+@import 'monospace-web';
+@import 'navigation';
+@import 'tableofcontents';
+
+@import 'codeblocks';
+
+@import 'math';
+
+// Use the print CSS in the styles as well so that there doesn't have to be another import.
+@import 'print';

@@ -1,0 +1,54 @@
+{{- $raw := trim .Inner " \t" -}}
+{{- if eq $raw "" -}}
+  {{/* no-op */}}
+{{- else -}}
+  {{- $lines := split $raw "\n" -}}
+
+  <ul class="tree">
+  {{- $prev := 0 -}}
+  {{- range $i, $line := $lines -}}
+    {{- /* normalize the line to work better */ -}}
+    {{- $ln := replaceRE "\t" "    " $line -}}
+    {{- $ln = replaceRE "\r$" "" $ln -}}
+    {{- $withoutLeading := replaceRE "^[ ]*" "" $ln -}}
+    {{- $level := sub (len $ln) (len $withoutLeading) -}}
+    {{- $text := trim $withoutLeading " " -}}
+
+    {{- if eq $text "" -}}
+      {{- /* no-op */ -}}
+    {{- else -}}
+      {{- if gt $level $prev -}}
+        {{- $delta := sub $level $prev -}}
+        {{- range $j, $_ := seq $delta -}}
+          {{- if and (eq $j 0) (eq $prev 0) -}}
+            <ul class="incremental">
+          {{- else -}}
+            <ul>
+          {{- end -}}
+        {{- end -}}
+      {{- else if lt $level $prev -}}
+        {{- $delta := sub $prev $level -}}
+        {{- range $_ := seq $delta -}}
+            </li>
+        </ul>
+        {{- end -}}
+        </li>
+      {{- else -}}
+        {{- if ne $i 0 -}}
+            </li>
+        {{- end -}}
+      {{- end -}}
+
+      <li><span>{{ $text | markdownify}}</span>
+      {{- $prev = $level -}}
+    {{- end -}}
+  {{- end -}}
+
+  </li>
+  {{- if gt $prev 0 -}}
+    {{- range $_ := seq $prev -}}
+    </ul></li>
+    {{- end -}}
+  {{- end -}}
+  </ul>
+{{- end -}}

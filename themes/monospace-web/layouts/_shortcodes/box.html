@@ -1,0 +1,10 @@
+<div class="box">
+    {{if .Get "title" }}
+    <div class="boxtitle">
+        {{ .Get "title" | markdownify }}
+    </div>
+    {{ end }}
+    <div class="boxcontent">
+        {{ .Inner | markdownify }}
+    </div>
+</div>

@@ -1,0 +1,13 @@
+{{ define "main" }}
+    <header>
+        {{- partial "header.html" (dict "context" .) -}}
+    </header>
+
+    <main>
+        {{ .Content }}
+    </main>
+
+    <footer>
+        {{- partial "footer.html" . -}}
+    </footer>
+{{ end }}

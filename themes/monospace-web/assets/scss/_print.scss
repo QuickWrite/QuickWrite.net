@@ -1,0 +1,60 @@
+/*
+ * Printing CSS to ensure that the PDF document that results from Ctrl+P looks awesome.
+ */
+@media print {
+    html {
+        background: #fff;
+    }
+
+    // Navigation
+    .header-navigation, .hide-print {
+        display: none;
+    }
+
+    // Links
+    a:link,
+    a:visited {
+        color: var(--text-color);
+    }
+
+    // Code blocks, boxes, figures and footer
+    .chroma, .box, figure, footer {
+        break-inside: avoid;
+    }
+
+    // details
+    details summary::marker {
+        content: '' !important;
+    }
+
+    ::details-content {
+        content-visibility: visible;
+        height: auto !important;
+    }
+
+    // TOC details
+    #TOC {
+        border: none;
+        padding: 0;
+        margin-bottom: 5ch;
+
+        & summary {
+            font-size: 1rem;
+            font-weight: var(--font-weight-bold);
+
+            text-transform: uppercase;
+        }
+    }
+
+    .license-list {
+        margin-top: -1ch;
+    }
+
+    .print-only {
+        display: revert;
+    }
+
+    .screen-only {
+        display: none;
+    }
+}

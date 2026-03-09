@@ -1,0 +1,8 @@
+{{ if in .TableOfContents "li" }} {{/* If the TOC is empty, then there is no li. And with that, we do not have to render this at all. */}}
+    <details id="TOC" role="doc-toc">
+        <summary>{{ i18n "TableOfContents" }}</summary>
+        <nav class="toc">
+            {{ partial "toc-recursive.html" (index .Fragments.Headings 0) }}
+        </nav>
+    </details>
+{{ end }}

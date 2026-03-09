@@ -1,0 +1,55 @@
+{{- $params := "" -}}
+{{- if eq .Kind "404" -}} {{/* Hugo treats 404 pages differently. So there has to be this hack. */}}
+  {{- $page := .Site.GetPage "/_404" -}}
+
+  {{- $params = $page.Params -}}
+{{ else }}
+  {{- $params = .Params -}}
+{{ end }}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<title>{{ .Title }} | {{ .Site.Title }}</title>
+
+<meta name="generator" content="Hugo with Monospace Web Theme" />
+{{ if $params.Author }}<meta name="author" content="{{ $params.Author }}" />{{ end }}
+{{ if $params.Description }}<meta name="description" content="{{ $params.Description }}">{{ end }}
+{{ if $params.excluderobots }}<meta name="robots" content="noindex">{{ end }}
+<link rel="canonical"  href="{{ .Permalink }}">
+
+<link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/img/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}" />
+<link rel="manifest" href="/img/favicon/site.webmanifest" />
+
+<meta rel="preload" href="/fonts/JetBrainsMono/JetBrainsMono-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+{{ with resources.Get "scss/style.scss" }}
+  {{ $opts := dict
+    "enableSourceMap" hugo.IsDevelopment
+    "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
+    "targetPath" "css/style.css"
+    "vars" site.Params.styles
+  }}
+  {{ with . | toCSS $opts }}
+    {{ if hugo.IsDevelopment }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{ else }}
+      {{ with . | fingerprint }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<meta
+  name="theme-color"
+  content="#fffdf8"
+  media="(prefers-color-scheme: light)" />
+<meta
+  name="theme-color"
+  content="#242424"
+  media="(prefers-color-scheme: dark)" />
+

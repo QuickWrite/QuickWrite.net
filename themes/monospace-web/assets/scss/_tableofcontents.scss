@@ -1,0 +1,102 @@
+.toc * {
+    margin-top: 0;
+}
+
+.toc-level-2 {
+    margin-top: 1ch;
+    font-weight: bold;
+}
+
+.toc-level-3 {
+    font-weight: normal;
+}
+
+.toc-list, .toc-list ol {
+  list-style-type: none;
+  margin-left: 0;
+}
+
+.toc-list {
+  padding: 0;
+}
+
+.toc-list ol {
+  padding-inline-start: 2ch;
+}
+
+.toc-list li > a {
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: auto max-content;
+    align-items: end;
+}
+
+.toc-list li > a > .title {
+    position: relative;
+    overflow: hidden;
+}
+
+@counter-style dot {
+  symbols: ".";
+}
+
+.toc-list li > a .leaders::after {
+    margin-left: 1ch;
+    position: absolute;
+    padding-inline-start: .25ch;
+    counter-reset: dots 120;
+    content: counter(dots, dot);
+    text-align: right;
+}
+
+.toc-list li > a > .counter {
+    margin-left: 1ch;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+
+.toc-level-2 {
+    counter-increment: h2;
+
+    & > a > .counter::after {
+        content: counter(h2)
+    }
+}
+
+.toc-level-3 {
+    counter-increment: h3;
+
+    & > a > .counter::after {
+        content: counter(h2) "." counter(h3)
+    }
+}
+
+.toc-level-4 {
+    counter-increment: h4;
+
+    & > a > .counter::after {
+        content: counter(h2) "." counter(h3) "." counter(h4)
+    }
+}
+
+.toc-level-5 {
+    counter-increment: h5;
+
+    & > a > .counter::after {
+        content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5)
+    }
+}
+
+.toc-level-6 {
+    counter-increment: h6;
+
+    & > a > .counter::after {
+        content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6)
+    }
+}
+
+.toc::after {
+    counter-reset: h1, h2, h3, h4, h5, h6;
+
+    content: "";
+}
