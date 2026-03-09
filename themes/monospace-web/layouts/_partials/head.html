@@ -43,23 +43,6 @@
     {{ end }}
   {{ end }}
 {{ end }}
-{{ with resources.Get "scss/print.scss" }}
-  {{ $opts := dict
-    "enableSourceMap" hugo.IsDevelopment
-    "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
-    "targetPath" "css/print.css"
-    "vars" site.Params.styles
-  }}
-  {{ with . | toCSS $opts }}
-    {{ if hugo.IsDevelopment }}
-      <link rel="stylesheet" href="{{ .RelPermalink }}" media="print">
-    {{ else }}
-      {{ with . | fingerprint }}
-        <link rel="stylesheet" href="{{ .RelPermalink }}" media="print" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ end }}
 
 <meta
   name="theme-color"

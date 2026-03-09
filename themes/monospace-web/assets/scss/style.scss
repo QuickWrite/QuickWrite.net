@@ -8,3 +8,6 @@
 @import 'codeblocks';
 
 @import 'math';
+
+// Use the print CSS in the styles as well so that there doesn't have to be another import.
+@import 'print';
