@@ -29,9 +29,13 @@ theme = "monospace-web"
         weight = 20
     
     [[menus.right]]
+        name = 'Projects'
+        pageRef = '/projects'
+        weight = 10
+    [[menus.right]]
         name = 'Blog'
         pageRef = '/blog'
-        weight = 10
+        weight = 20
 
 [markup]
     [markup.highlight]
