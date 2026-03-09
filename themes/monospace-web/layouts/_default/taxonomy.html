@@ -1,0 +1,24 @@
+{{ define "main" }}
+    <header>
+        {{- partial "header.html" (dict "context" .) -}}
+    </header>
+
+    <main>
+        {{ $paginator := .Paginate .Pages.ByTitle }}
+
+        {{ .Content }}
+        <ul>
+            {{ range $paginator.Pages }}
+            <li>
+                <a href="{{ .RelPermalink }}"><strong>{{ .LinkTitle }}</strong> - {{ .Params.subtitle }}</a>
+            </li>
+            {{ end }}
+        </ul>
+
+        {{ partial "pagination.html" . }}
+    </main>
+
+    <footer>
+        {{- partial "footer.html" . -}}
+    </footer>
+{{ end }}
