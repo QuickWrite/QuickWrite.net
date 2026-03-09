@@ -18,4 +18,5 @@ Disallow:
 
 {{ partial "data/bad-robots.html" . }}
 
-# Bye for now — go index something lovely! /o/  (✿◠‿◠)
+# Bye for now - go index something lovely! /o/  (✿◠‿◠)
+Sitemap: https://quickwrite.net/sitemap.xml
