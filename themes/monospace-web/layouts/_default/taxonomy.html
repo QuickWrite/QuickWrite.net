@@ -10,7 +10,7 @@
         <ul>
             {{ range $paginator.Pages }}
             <li>
-                <a href="{{ .RelPermalink }}"><strong>{{ .LinkTitle }}</strong> - {{ .Params.subtitle }}</a>
+                <a href="{{ .RelPermalink }}"><strong>{{ .LinkTitle }}</strong>{{ if .Params.subtitle }} - {{ .Params.subtitle }}{{ end }}</a>
             </li>
             {{ end }}
         </ul>
