@@ -4,9 +4,23 @@
 </header>
 
 <main>
-    {{ $paginator := .Paginate .Pages.ByTitle }}
+    {{ $paginator := "" }}
+    {{ if or (not .Params.orderby) (eq .Params.orderby "title") }}
+        {{ if .Params.reverse }}
+            {{ $paginator = .Paginate .Pages.ByTitle.Reverse }}
+        {{ else }}
+            {{ $paginator = .Paginate .Pages.ByTitle }}
+        {{ end }}
+    {{ else if eq .Params.orderby "date" }}
+        {{ if .Params.reverse }}
+            {{ $paginator = .Paginate .Pages.ByDate.Reverse }}
+        {{ else }}
+            {{ $paginator = .Paginate .Pages.ByDate }}
+        {{ end}}
+    {{ end }}
 
     {{ .Content }}
+
     {{ range $paginator.Pages }}
     <div>
         <div class="box">
