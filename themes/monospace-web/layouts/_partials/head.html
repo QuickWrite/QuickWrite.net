@@ -16,9 +16,9 @@
 {{ if $params.Author }}<meta name="author" content="{{ $params.Author }}" />{{ end }}
 {{ if $params.Description }}<meta name="description" content="{{ $params.Description }}">{{ end }}
 {{ if $params.excluderobots }}
-  <meta name="robots" content="noindex, noai, noimageai">
+  <meta name="robots" content="noindex, noarchive, noai, noimageai">
 {{ else }}
-  <meta name="robots" content="noai, noimageai">
+  <meta name="robots" content="noai, noarchive, noimageai">
 {{ end }}
 <link rel="canonical"  href="{{ .Permalink }}">
 
